@@ -1,45 +1,81 @@
+<!DOCTYPE html>
 <html>
  
 <body>
-    <head>
-        <title>Working on java script</title>
-    </head>
 
-<h2>Pass phrase by Vinayaka Reddy Jogannagari</h2>
- <form>
-    <label for="form1_age">Enter the secret phrase </label>
-    <input type ="password" id="secret_phrase" name="form1_age" value="Let me in"> <br>
+<h2>Getting input</h2>
 
-    <label for="form1_nick">Enter a phrase </label>
-    <input type ="text" id="phrase" name="form1_nick" autofocus> <br>
+<form>
+    <label for="Let me in">Enter the secret phrase</label>
+    <input type ="password" id="Let me in" name="Let me in" min=10 max=50 step=2 value="Let me in"> <br>
+    
+
+    <label for="Guess">Enter a phrase </label>
+    <input type ="text" id="Guess" name="Guess" autofocus> <br>
 
     <input type="button" onclick="processPhrase()" value="Check the phrase">
 </form>
 
+
 <p id="result">This text will be replaced </p>
 
-
 <script> 
-
-var correct=0
-var wrong=0
-
-function processPhrase (){
-console.log("Getting form values")
-sphrase = document.getElementById("secret_phrase").value
-phrase = document.getElementById("phrase").value
-
-out = document.getElementById("result")
-if(sphrase == phrase){
-    correct = correct +1
-    alert("Access allowed")
-    out.innerHTML = "Correct:" +correct
-} else {
-    wrong = wrong +1
-    alert("Access denied")
-    out.innerHTML = "Wrong:" +wrong
+    var correct=0;
+    var wrong=0;
+    
+function processPhrase() {
+    secret=document.getElementById("Let me in").value
+    
+        
+    Guess=document.getElementById("Guess").value
+    if (secret==Guess){
+        correct++
+        alert("Access allowed")
+    }
+    else{
+        wrong++
+        alert("Access denied")
+    }
+    result=document.getElementById("result").innerHTML="This is correct : "+correct+" This is wrong : "+wrong
 }
-}
+
 </script>
+<br>
+<div class="container" >
+    <img src="Antelope.jpg" height="200" width="200" onclick="newImage()" id="image">
+    <script>
+        var usingImage=1;
+          function newImage(){
+            
+              switch (usingImage) {
+                  case 1:
+                     document.getElementById("image").src="Antelope.jpg";
+                      usingImage=2;
+                      break;
+                  case 2:
+                  document.getElementById("image").src="Giraffe.jpg";
+                      usingImage=3;
+                      break;
+                  case 3:
+                  document.getElementById("image").src="Numbat.jpg";
+                      usingImage=4;
+                      break;
+                  default :
+                  document.getElementById("image").src="Antelope.jpg"
+                  usingImage=1;
+                  break;
+              }
+      
+          }
+      </script>
+</div>
+
+
+  
+
+
+
 </body>
-</html>
+
+</body>
+</html> 
